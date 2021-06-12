@@ -1,3 +1,7 @@
 {
-  "java.project.sourcePaths": ["1 - POO", "2 - POO"]
+  "java.project.sourcePaths": [
+    "2 - POO",
+    "1 - POO",
+    "3 - POO"
+  ]
 }
