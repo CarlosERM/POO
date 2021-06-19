@@ -1,52 +1,87 @@
-public class Conta extends Usuario{
-    int nroConta;
-    int agencia;
-    String rua;
-    String bairro;
-    String cidade;
 
-    public Conta(String nome, int cpf, int id, int nroConta, int agencia, String rua, String bairro, String cidade) {
-        // super(nome, cpf, id);
-        this.nomeCliente = nome;
-        this.cpf = cpf;
-        this.id = id;
+// import java.util.ArrayList;
+
+
+public class Conta {
+    
+ 
+
+    private int nroConta;
+    private int agencia;
+    private float saldo;
+ 
+
+
+
+    private Cliente cliente;
+
+    // ArrayList<Conta> listaContas;
+
+    public Conta(int nroConta, int agencia, float saldo, Cliente cliente) {
         this.nroConta = nroConta;
         this.agencia = agencia;
-        this.rua = rua;
-        this.bairro = bairro;
-        this.cidade = cidade;
-    }
-    public Conta(String nome, int cpf, int id, int nroConta, int agencia, String rua, String bairro) {
-        // super(nome, cpf, id);
-        this.nomeCliente = nome;
-        this.cpf = cpf;
-        this.id = id;
-        this.nroConta = nroConta;
-        this.agencia = agencia;
-        this.rua = rua;
-        this.bairro = bairro;
-    }
-    public Conta(String nome, int cpf, int id, int nroConta, int agencia, String rua) {
-        // super(nome, cpf, id);
-        this.nomeCliente = nome;
-        this.cpf = cpf;
-        this.id = id;
-        this.nroConta = nroConta;
-        this.agencia = agencia;
-        this.rua = rua;
+        this.saldo = saldo;
+        this.cliente = cliente;
     }
 
-    public Conta(String nome, int cpf, int id, int nroConta, int agencia) {
-        // super(nome, cpf, id);
-        this.nomeCliente = nome;
-        this.cpf = cpf;
-        this.id = id;
-        this.nroConta = nroConta;
-        this.agencia = agencia;
+    public boolean sacar(float saque) {
+        if(saque > this.saldo || saque <= 0) {
+            return false;
+        } 
 
+        this.saldo -= saque;
+        return true;
     }
+    public boolean depositar(float deposito) {
+        if (deposito <= 0) {
+            return false;
+        }
+        this.saldo += deposito;
+        return true;
+    }
+    public boolean transferir(float valorTrans, Conta conta1, Conta conta2) {
+        if (valorTrans > conta1.saldo || valorTrans <= 0) return false;
+        conta1.saldo -= valorTrans;
+        conta2.saldo += valorTrans;
+        return true;
+    }
+
+
+    public int getNroConta() {
+        return nroConta;
+    }
+
+    public void setNroConta(int nroConta) {
+        this.nroConta = nroConta;
+    }
+
+    public int getAgencia() {
+        return agencia;
+    }
+
+    public void setAgencia(int agencia) {
+        this.agencia = agencia;
+    }
+
+    public float getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(float saldo) {
+        this.saldo = saldo;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
     @Override
-    public String toString() {
-    return "Nome: " + this.nomeCliente + "\t CPF: " + this.cpf + "\t ID: " + this.id + "\tConta: " + this.nroConta + "\t Agência: " + this.agencia + "\t Rua: " + this.rua + "\t Bairro: " + this.bairro + "\tCidade: " + this.cidade;    
+    public String toString(){
+        return "Nome: " + cliente.getNome() + "\t CPF: " + cliente.getCpf() + "\t ID: " + cliente.getId() + "\t Número da Conta: " + nroConta + "\t Agencia: " + agencia + "\t Saldo: " + this.saldo + "\t Número da Rua: " + cliente.getNroRua()+ "\t Bairro: " + cliente.getBairro() +  "\t Cidade: " + cliente.getCidade();
     }
+
 }
