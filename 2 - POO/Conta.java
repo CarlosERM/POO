@@ -1,4 +1,4 @@
- class Conta  {
+ public class Conta  {
   // Você está trabalhando para um banco e precisa implementar uma conta corrente. Para isso é
   // necessário criar uma classe Conta Corrente que possui as informações básicas de uma conta e do
   // seu titular (defina pelo menos 5 atributos). Esta classe também deve conter três métodos básicos:

@@ -93,7 +93,6 @@ public class Main {
                         
                         listaContas.add(conta);
                         
-                        System.out.println(listaContas);
                         System.out.println("Conta criada com sucesso!!!");
                     
                     } else if (opcaoOpt == 2){
@@ -102,7 +101,6 @@ public class Main {
                        
                         listaContas.add(conta);
                        
-                        System.out.println(listaContas);
                         System.out.println("Conta criada com sucesso!!!");
 
                     } else {
@@ -215,8 +213,9 @@ public class Main {
                     } 
                     auxiliarPesquisa = false; 
 
-                    System.out.println("Qual o número da  2ª Conta?(RECEBERÁ O DINHEIRO) ");
+                    System.out.println("Qual o número da  Conta que vai receber o dinheiro?");
                     nroConta = scan.nextInt();
+                    
                     for (Conta x : listaContas) {
                         if (x.getNroConta() == nroConta) {
                             conta2Trans = x;

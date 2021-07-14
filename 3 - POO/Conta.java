@@ -23,7 +23,7 @@ public class Conta {
         this.saldo = saldo;
         this.cliente = cliente;
     }
-
+// saca saca de dinheiro
     public boolean sacar(float saque) {
         if(saque > this.saldo || saque <= 0) {
             return false;
@@ -32,6 +32,7 @@ public class Conta {
         this.saldo -= saque;
         return true;
     }
+    // faz o deposito
     public boolean depositar(float deposito) {
         if (deposito <= 0) {
             return false;
@@ -39,8 +40,9 @@ public class Conta {
         this.saldo += deposito;
         return true;
     }
+    // COISA BONITa. Transfere as coisas
     public boolean transferir(float valorTrans, Conta conta1, Conta conta2) {
-        if (valorTrans > conta1.saldo || valorTrans <= 0) return false;
+        if (valorTrans > conta1.saldo || valorTrans <= 0 || conta1.nroConta == conta2.nroConta) return false;
         conta1.saldo -= valorTrans;
         conta2.saldo += valorTrans;
         return true;
